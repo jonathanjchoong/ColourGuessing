@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset=“utf-8”/>
+        <title>
+            Colour Guesser Game
+        </title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+        <link rel="stylesheet" href="styles.css">
+
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet"> 
+
+    </head>
+    <body>
+        <script src="game.js"></script>
+        <div class = "page text-center">
+            <div class="game">
+                <h1>Guess the Colour!</h1>
+                <h3 id="question">The color is #______</h3>
+                <div class="options">
+                    <div class="square" id="1" onClick="guess('1')"></div>
+                    <div class="square" id="2" onClick="guess('2')"></div>
+                    <div class="square" id="3" onClick="guess('3')"></div>
+                    <div class="square" id="4" onClick="guess('4')"></div>
+                    <div class="square" id="5" onClick="guess('5')"></div>
+                    <div class="square" id="6" onClick="guess('6')"></div>
+                </div>
+                <span>
+                    <button class="reset" onClick="reset()">Reset</button>
+                    <button class="reset" id="toggle" onclick="show()">Boring</button>
+                </span>
+            </div>
+            <div id = "description">
+                <p>Hexadecimal colours are commonly used in websites and software applications, specified with the format: 
+                <br>
+                <strong>#RRGGBB</strong> - RR (red), GG (green) and BB (blue)
+                <br>
+                Each hexadecimal integer ranges between 00 and FF, which specifies the intensity of the color.
+                <br>
+                For example, #FFFFFF represents the colour 'white' as all RGB colours are at full intensity, <br> while #000000 represents 'black' as all are at it's lowest intensity. 
+                </p>
+            </div>
+            <div class = "footer">
+                <p>A Creation by <span id = "author">Jonathan Choong</span></p>
+            </div>
+        </div>
+    </body>
+    
+</html>
