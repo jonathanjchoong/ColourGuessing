@@ -1,8 +1,20 @@
 var gameFinished = false;
+var scoreCount = 0;
+var lastWin = false;
+var attempts = 0;
 
 function reset()
 {
+    document.querySelector('.page').classList.remove('freeze');
+    if (lastWin == false || gameFinished == false){
+        scoreCount = 0;
+    }
+    else {
+        scoreCount += 1;
+    }
     gameFinished = false;
+    attempts = 0;
+    document.getElementById("score").innerHTML = `Score: ${scoreCount}`;
     //set chosen colour
     var c = getRandomColor();
     var str = document.getElementById("question").innerHTML;
@@ -52,11 +64,20 @@ function guess(colorId)
     if(rgb2hex(document.getElementById(colorId).style.backgroundColor) == str){
         document.getElementById(colorId).innerHTML = "That was correct!";
         gameFinished = true;
+        document.querySelector('.page').classList.add('freeze');
+        lastWin = true;
         setTimeout(reset, 1000);
     }
     else{
         if(gameFinished == false){
             document.getElementById(colorId).innerHTML = "That was incorrect";
+            attempts += 1;
+            if(attempts == 3){
+                lastWin = false;
+                gameFinished = true;
+                document.querySelector('.page').classList.add('freeze');
+                setTimeout(reset, 1000);
+            }
         }
     }
 }
